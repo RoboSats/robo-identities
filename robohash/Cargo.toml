@@ -1,0 +1,45 @@
+[package]
+name = "robohash"
+authors = ["kyco","reckless_satoshi"]
+version = "0.2.3"
+edition = "2021"
+description = "RoboHash implementation w/ robosats customizations"
+homepage = "https://github.com/robosats/robo-identities"
+repository = "https://github.com/robosats/robo-identities"
+readme = "README.md"
+license-file = "LICENSE"
+keywords = ["robo", "robohash", "robot", "avatar"]
+include = ["**/*.rs", "Cargo.toml"]
+
+[[bin]]
+name = "robohash-cli"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ring = "0.16.20"
+anyhow = "1.0.66"
+data-encoding = "2.3.2"
+byteorder = "1.4.3"
+walkdir = "2.3.2"
+image = "0.24.5"
+base64 = "0.21.2"
+strum = "0.25"
+strum_macros = "0.25"
+thiserror = "1.0.37"
+imageproc = "0.23.0"
+
+[dev-dependencies]
+criterion = { version = "0.5.1", features = ["html_reports"] }
+
+[[bench]]
+name = "benchmark"
+harness = false
+
+[profile.release]
+opt-level = 'z'     # Optimize for size
+lto = true          # Enable link-time optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations
+panic = 'abort'     # Abort on panic
+strip = true        # Strip symbols from binary*
