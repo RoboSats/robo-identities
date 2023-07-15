@@ -7,4 +7,3 @@ edition = "2021"
 
 [dependencies]
 sha2 = "0.10.1"
-rustc-serialize = "0.3.24"  # For serialization

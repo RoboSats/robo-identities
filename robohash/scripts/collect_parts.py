@@ -1,7 +1,7 @@
 import os, io, base64
 from PIL import Image
 
-QUALITY = 80
+QUALITY = 70
 METHOD = 6  # Slowest compression method, best compression ratio and image quality
 
 def convert_to_webp_base64(file_path: str) -> str:
@@ -86,8 +86,8 @@ if __name__ == "__main__":
     image_arrays, length = create_image_arrays(directory)
     write_image_arrays(image_arrays, length, output_file)
 
-    ### Regenerating backgrounds.rs requires a bit of manual editing 
+    ### Regenerating backgrounds.rs requires a manual editing 
     # directory = "backgrounds"
-    # output_file = "src/backgrounds.rs"
+    # output_file = "src/backgrounds2.rs"
     # image_arrays, length = create_image_arrays(directory)
     # write_image_arrays(image_arrays, length, output_file)
