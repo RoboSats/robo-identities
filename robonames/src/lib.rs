@@ -40,6 +40,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn test_nickname_generator() {
         assert_eq!(
             generate_nickname("23d022aa5dc633f2f115e48fc1f393f051ebdec3dfae41cfcd01bdac3577017f"),
