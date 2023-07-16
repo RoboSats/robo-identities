@@ -3,7 +3,7 @@
 members = [
     "robohash",
     "robonames",
-    "wasm"
+    "robo-identities-wasm"
 ]
 
 [profile.release]

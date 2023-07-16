@@ -1,5 +1,5 @@
 [package]
-name = "robo-identities"
+name = "robo-identities-wasm"
 version = "0.1.0"
 authors = ["Reckless_Satoshi <reckless.satoshi@protonmail.com>"]
 edition = "2021"
