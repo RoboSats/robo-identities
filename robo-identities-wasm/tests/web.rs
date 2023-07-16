@@ -17,7 +17,7 @@ fn test_robonames() {
 
 #[wasm_bindgen_test]
 fn test_robohash() {
-    let robohash = generate_robohash("reckless");
+    let robohash = generate_robohash("reckless", 256);
     alert(&robohash);
     assert_eq!(EXPECTED_ROBOHASH, robohash);
 }

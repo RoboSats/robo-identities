@@ -10,13 +10,11 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn generate_robohash(initial_string: &str) -> String {
-    let size = 256;
-
+pub fn generate_robohash(initial_string: &str, size: i32) -> String {
     // build
     let robohash = RoboHashBuilder::new(initial_string)
         .with_background(&true)
-        .with_size(size, size)
+        .with_size(size as u32, size as u32)
         .build()
         .expect("Should build RoboHash generator");
 

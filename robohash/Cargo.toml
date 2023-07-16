@@ -1,7 +1,7 @@
 [package]
 name = "robohash"
-authors = ["kyco","reckless_satoshi"]
-version = "0.2.3"
+authors = ["reckless_satoshi","kyco"]
+version = "0.3.0"
 edition = "2021"
 description = "RoboHash implementation w/ robosats customizations"
 homepage = "https://github.com/robosats/robo-identities"
