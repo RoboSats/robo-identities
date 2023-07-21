@@ -1,4 +1,4 @@
-pub static ADJECTIVES: [&str; 4833] = [
+pub static ADJECTIVES: [&str; 4832] = [
     "Toneless",
     "Greedy",
     "Proportioned",
@@ -4823,8 +4823,7 @@ pub static ADJECTIVES: [&str; 4833] = [
     "Vindictive",
     "Chatting",
     "Nightmarish",
-    "Niggardly",
-    "Hated",
+    "Featherbrained",
     "Satiric",
     "Shattering",
     "Fabled",
