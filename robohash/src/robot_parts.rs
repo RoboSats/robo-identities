@@ -1,6 +1,6 @@
-pub static PARTS: &[[&str;13]] = &[ BODY, FACE, MOUTH, EYES, ACCESSORY,];
+pub static PARTS: &[[&str; 13]] = &[BODY, FACE, MOUTH, EYES, ACCESSORY];
 
-pub static PARTS_LENGTH: [u8; 5] = [11,10,10,12,13,];
+pub static PARTS_LENGTH: [u8; 5] = [11, 10, 10, 12, 13];
 
 const PADDING: &str = "";
 
