@@ -8,5 +8,5 @@ edition = "2021"
 [dependencies]
 data-encoding = "2.4.0"
 num = "0.4.1"
-ring = "0.16.20"
+ring = "0.17.7"
 sha2 = "0.10.1"
