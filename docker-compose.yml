@@ -1,21 +1,21 @@
 version: '3.4'
 
 services:
-  # rust_wasm:
-  #   build:
-  #     context: .
-  #     dockerfile: ./robo-identities-wasm/Dockerfile
-  #   volumes:
-  #     - ./builds/wasm/:/app/robo-identities-wasm/pkg/:rw
-  #   command: wasm-pack build
-  # rust_java_robonames:
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
-  #     target: robonames
-  #   volumes:
-  #     - ./builds/java/robonames:/root/target/:rw
-  #   command: cargo ndk -t armeabi-v7a -t arm64-v8a -o ./target build --release
+  rust_wasm:
+    build:
+      context: .
+      dockerfile: ./robo-identities-wasm/Dockerfile
+    volumes:
+      - ./builds/wasm/:/app/robo-identities-wasm/pkg/:rw
+    command: wasm-pack build
+  rust_java_robonames:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: robonames
+    volumes:
+      - ./builds/java/robonames:/root/target/:rw
+    command: cargo ndk -t armeabi-v7a -t arm64-v8a -o ./target build --release
   rust_java_robohash:
     build:
       context: .

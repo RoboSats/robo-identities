@@ -965,14 +965,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "robo-identities-java"
-version = "0.1.0"
-dependencies = [
- "jni",
- "robonames",
-]
-
-[[package]]
 name = "robo-identities-wasm"
 version = "0.1.0"
 dependencies = [
