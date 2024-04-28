@@ -86,6 +86,37 @@ pub fn generate_short_nickname(hex_str: &str) -> Result<String, Error> {
     Ok(String::from(""))
 }
 
+pub mod android {
+    use jni::objects::{JClass, JString};
+    use jni::sys::jstring;
+    use jni::JNIEnv;
+
+    use crate::generate_short_nickname;
+
+    #[no_mangle]
+    pub extern "system" fn Java_com_robosats_RoboIdentities_nativeGenerateRoboname<'local>(
+        mut env: JNIEnv<'local>,
+
+        _class: JClass<'local>,
+        initial_string: JString<'local>,
+    ) -> jstring {
+        let initial_string: String = env
+            .get_string(&initial_string)
+            .expect("Couldn't get java string!")
+            .into();
+        let string: &str = initial_string.as_str();
+        let nickname = generate_short_nickname(string);
+        match nickname {
+            Ok(nick) => {
+                let output = env.new_string(nick).expect("Couldn't create java string!");
+                // Finally, extract the raw pointer to return.
+                output.into_raw()
+            }
+            Err(_) => todo!(),
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

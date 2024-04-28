@@ -1,9 +1,9 @@
 [workspace]
-
 members = [
     "robohash",
     "robonames",
-    "robo-identities-wasm"
+    "robo-identities-wasm",
+    "robo-identities-java"
 ]
 
 [profile.release]

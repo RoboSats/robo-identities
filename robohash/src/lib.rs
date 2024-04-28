@@ -126,6 +126,55 @@ fn select_hue_rotation(hash_array: &[i64]) -> Option<i32> {
     Some(hue)
 }
 
+pub mod android {
+    use jni::objects::{JClass, JString};
+    use jni::sys::jstring;
+    use jni::JNIEnv;
+
+    use crate::RoboHashBuilder;
+
+    #[no_mangle]
+    pub extern "system" fn Java_com_robosats_RoboIdentities_nativeGenerateRobohash<'local>(
+        mut env: JNIEnv<'local>,
+
+        _class: JClass<'local>,
+        initial_string: JString<'local>,
+    ) -> jstring {
+        let initial_string: String = env
+            .get_string(&initial_string)
+            .expect("Couldn't get java string!")
+            .into();
+
+        match initial_string.split_once(';') {
+            Some((hash, size_str)) => {
+                match size_str.parse::<u32>() {
+                    Ok(size) => {
+                        let robohash = RoboHashBuilder::new(hash)
+                            .with_background(&true)
+                            .with_size(size as u32, size as u32)
+                            .build();
+
+                        match robohash {
+                            Ok(robo) => match robo.assemble_base64() {
+                                Ok(base64_string) => {
+                                    let output = env
+                                        .new_string(base64_string)
+                                        .expect("Couldn't create java string!");
+                                    output.into_raw()
+                                }
+                                Err(_text) => todo!(),
+                            },
+                            Err(_text) => todo!(),
+                        }
+                    }
+                    Err(_err) =>  todo!(),
+                }
+            }
+            None =>  todo!(),
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::fs::File;

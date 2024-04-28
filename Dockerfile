@@ -63,7 +63,6 @@ RUN rustup target add \
 
 ENV PATH="${PATH}:${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin"
 
-
 # install cargo tools
 RUN cargo install cargo-ndk 
 
