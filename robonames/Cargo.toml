@@ -6,7 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+jni = "0.21.1"
 data-encoding = "2.4.0"
 num = "0.4.1"
 ring = "0.16.20"
 sha2 = "0.10.1"
+prefer-dynamic = "0"
+
+[lib]
+crate-type = ["rlib", "dylib"]
