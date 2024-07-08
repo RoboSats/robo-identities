@@ -56,10 +56,12 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN rustup target add \
         aarch64-linux-android \
         armv7-linux-androideabi \
+        x86_64-linux-android \
     && rustup toolchain install nightly \
     && rustup target add --toolchain nightly \
         aarch64-linux-android \
-        armv7-linux-androideabi
+        armv7-linux-androideabi \
+        x86_64-linux-android 
 
 ENV PATH="${PATH}:${NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin"
 
